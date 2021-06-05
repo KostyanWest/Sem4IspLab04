@@ -1,8 +1,8 @@
-version: '2.0'
+version: '1.0'
 
 services:
   web:
-    image: artegful/noty-web
+    image: kostyanwest/lab4web
     build:
       context: ./app
     command: gunicorn noty.wsgi:application --bind 0.0.0.0:8000
@@ -23,7 +23,7 @@ services:
       - ./.env.prod.db
 
   nginx:
-    image: artegful/noty-nginx
+    image: kostyanwest/lab4nginx
     build: ./nginx
     volumes:
       - static_volume:/home/app/web/staticfiles
